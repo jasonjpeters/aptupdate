@@ -18,9 +18,9 @@ apt update
 apt install git -y
 
 ## install/update
-if [ -d "$INSTALL_DIR" ]; then
+if [ ! -d "$INSTALL_DIR" ]; then
     echo "Installing APTUpdate..."
-    mkdir -p "$INSTALL_DIR"
+    mkdir -p $INSTALL_DIR
     cd "$INSTALL_DIR"
     git clone git@github.com:jasonjpeters/${SCRIPT_NAME}.git ./
 else
@@ -32,7 +32,7 @@ cd $INSTALL_DIR
 git pull
 
 ## symlink (global command)
-if [ ! -e "/usr/bin/${SCRIPT_NAME}" ]; then
+if [ ! -e "/usr/local/bin/${SCRIPT_NAME}" ]; then
     ln -s ${INSTALL_DIR}$SCRIPT_NAME.sh /usr/bin/${SCRIPT_NAME}
 fi
 
