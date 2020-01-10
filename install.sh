@@ -32,7 +32,7 @@ cd $INSTALL_DIR
 git pull
 
 ## symlink (global command)
-if [ ! -e "/usr/bin/${SCRIPT_NAME}" ]l then
+if [ ! -e "/usr/bin/${SCRIPT_NAME}" ]; then
     ln -s ${INSTALL_DIR}$SCRIPT_NAME.sh /usr/bin/${SCRIPT_NAME}
 fi
 
