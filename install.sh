@@ -29,7 +29,9 @@ fi
 
 ## fetch/pull code
 cd "${INSTALL_DIR}/${SCRIPT_NAME}"
-git pull --force
+git fetch --all
+git reset --hard origin/master
+git pull origin master
 
 ## symlink
 if [ ! -e "/usr/local/bin/${SCRIPT_NAME}" ]; then
