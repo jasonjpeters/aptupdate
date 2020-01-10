@@ -31,6 +31,11 @@ if ! [ "$(id -u)" = 0 ]; then
     exit
 fi
 
+if [ "$1" = "genconfig" ]; then
+    printTitle "Generating /etc/aptupdate/aptupdate.conf"
+    exit
+fi
+
 ## load configurations
 for CONFIGFILE_PATH in "$CONFIGFILE_DEFAULT" "$CONFIGFILE_ETC"
 do

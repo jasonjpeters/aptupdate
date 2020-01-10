@@ -13,3 +13,10 @@ Command to fully update a Ubunutu Desktop/Server via APT.
 curl -s https://raw.githubusercontent.com/jasonjpeters/aptupdate/master/install.sh | sudo bash
 ```
 
+## Configuration
+
+Configurations are sourced from ```aptupdate.conf``` located in ```/opt/aptupdate``` by default. These can be overriden by editing the file ```/etc/aptupdate/aptupdate.conf```. Generate this file with the command below.
+
+```
+sudo aptupdate --genconfig
+```
