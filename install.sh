@@ -6,7 +6,7 @@ SCRIPT_NAME=aptupdate
 
 ## environment variables
 WORKING_DIR="$(pwd)"
-INSTALL_DIR="/usr/lib/$SCRIPT_NAME/"
+INSTALL_DIR="/opt"
 
 ## create conifg directory
 if [ ! -d "/etc/aptupdate" ]; then
@@ -17,24 +17,24 @@ fi
 apt update
 apt install git -y
 
-## install/update
-if [ ! -d "$INSTALL_DIR" ]; then
+if [ ! -d "${INSTALL_DIR}/${SCRIPT_NAME}" ]; then
     echo "Installing APTUpdate..."
-    mkdir -p $INSTALL_DIR
-    cd "$INSTALL_DIR"
-    git clone git@github.com:jasonjpeters/${SCRIPT_NAME}.git ./
+    cd "${INSTALL_DIR}"
+    git clone https://github.com/jasonjpeters/${SCRIPT_NAME}.git
+    chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/${SCRIPT_NAME}.sh"
+    chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/install.sh"
 else
     echo "Updating APTUpdate..."
 fi
 
-## fetch & pull code
-cd $INSTALL_DIR
+## fetch/pull code
+cd "${INSTALL_DIR}/${SCRIPT_NAME}"
 git pull
 
-## symlink (global command)
+## symlink
 if [ ! -e "/usr/local/bin/${SCRIPT_NAME}" ]; then
-    ln -s ${INSTALL_DIR}$SCRIPT_NAME.sh /usr/bin/${SCRIPT_NAME}
+    ln -s ${INSTALL_DIR}/${SCRIPT_NAME}/${SCRIPT_NAME}.sh /usr/local/bin/${SCRIPT_NAME}
 fi
 
-## restore working directory
-cd $WORKING_DIR
+## return to working directory
+cd "$WORKING_DIR" || exit
