@@ -9,6 +9,7 @@ START_TIME="$(date +%s)"
 
 SCRIPT_PTH=$(readlink -f "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_PTH")/
+SCRIPT_HSH=$(md5sum "${SCRIPT_PTH}" | awk '{ print $1 }')
 
 CONFIGFILE=$SCRIPT_NAME.conf
 CONFIGFILE_DEFAULT=${SCRIPT_DIR}$CONFIGFILE
@@ -37,6 +38,18 @@ do
         source "$CONFIGFILE_PATH"
     fi
 done
+
+## update aptupdate
+printTitle "Updating APTUpdate"
+if [ -f "${SCRIPT_DIR}install.sh" ]; then
+    "${SCRIPT_DIR}install.sh"
+fi
+
+SCRIPT_UPDATE_HSH=$(md5sum "${SCRIPT_PTH}" | awk '{ print $1 }')
+if [ "${SCRIPT_HSH}" != "${SCRIPT_UPDATE_HSH}" ]; then
+    echo "** Updated APTUpdate, run sudo aptupdate again to update system"
+    exit
+fi
 
 ## upgrade system
 printTitle "Cleaning local cache"
