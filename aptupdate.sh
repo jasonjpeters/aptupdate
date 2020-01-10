@@ -31,7 +31,7 @@ if ! [ "$(id -u)" = 0 ]; then
     exit
 fi
 
-## load configurations
+## load configuration(s)
 for CONFIGFILE_PATH in "$CONFIGFILE_DEFAULT" "$CONFIGFILE_ETC"
 do
     if [ -f "$CONFIGFILE_PATH" ]; then
