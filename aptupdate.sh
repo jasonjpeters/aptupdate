@@ -78,4 +78,5 @@ fi
 printTitle "Package cleanup"
 apt-get autoremove -y
 
+printf "\n"
 echo "Update completed in $((($(date +%s)-START_TIME)/60)) min"
