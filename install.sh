@@ -29,7 +29,7 @@ fi
 
 ## fetch/pull code
 cd "${INSTALL_DIR}/${SCRIPT_NAME}"
-git pull
+git pull --force
 
 ## symlink
 if [ ! -e "/usr/local/bin/${SCRIPT_NAME}" ]; then
