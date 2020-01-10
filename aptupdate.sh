@@ -9,10 +9,9 @@ START_TIME="$(date +%s)"
 
 SCRIPT_PTH=$(readlink -f "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_PTH")/
-SCRIPT_HSH=`md5sum ${SCRIPT_PTH} | awk '{ print $1 }'`
 
 CONFIGFILE=$SCRIPT_NAME.conf
-CONFIGFILE_DEFAULT=${SCRIPT_DIR}$SCRIPT_NAME.default.conf
+CONFIGFILE_DEFAULT=${SCRIPT_DIR}$CONFIGFILE
 CONFIGFILE_ETC=/etc/$SCRIPT_NAME/$CONFIGFILE
 
 ## formats string output
@@ -25,9 +24,9 @@ function printTitle
 }
 
 ## root check
-if ! [ $(id -u) = 0 ]; then
+if ! [ "$(id -u)" = 0 ]; then
     printTitle "Error: Must be run as root!"
-    printf "** sudo $SCRIPT_NAME \n\n"
+    printf "** sudo %s \n\n" "$SCRIPT_NAME"
     exit
 fi
 
@@ -67,4 +66,4 @@ fi
 printTitle "Package cleanup"
 apt-get autoremove -y
 
-echo "Update completed in $((($(date +%s)-$START_TIME)/60)) min"
+echo "Update completed in $((($(date +%s)-START_TIME)/60)) min"
