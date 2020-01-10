@@ -46,7 +46,7 @@ fi
 
 SCRIPT_UPDATE_HSH=$(md5sum "${SCRIPT_PTH}" | awk '{ print $1 }')
 if [ "${SCRIPT_HSH}" != "${SCRIPT_UPDATE_HSH}" ]; then
-    echo "** Updated APTUpdate, run sudo aptupdate again to update system"
+    echo "** Updated APTUpdate, run sudo aptupdate again for system update"
     exit
 fi
 
