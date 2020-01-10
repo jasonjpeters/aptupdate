@@ -40,7 +40,6 @@ do
 done
 
 ## update aptupdate
-printTitle "Updateing APTUpdate"
 if [ -f "${SCRIPT_DIR}install.sh" ]; then
     "${SCRIPT_DIR}install.sh"
 fi

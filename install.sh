@@ -24,7 +24,7 @@ if [ ! -d "${INSTALL_DIR}/${SCRIPT_NAME}" ]; then
     chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/${SCRIPT_NAME}.sh"
     chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/install.sh"
 else
-    echo "..."
+    echo "Updateing APTUpdate..."
 fi
 
 ## fetch/pull code
