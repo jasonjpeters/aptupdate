@@ -21,8 +21,6 @@ if [ ! -d "${INSTALL_DIR}/${SCRIPT_NAME}" ]; then
     echo "Installing APTUpdate..."
     cd "${INSTALL_DIR}"
     git clone https://github.com/jasonjpeters/${SCRIPT_NAME}.git
-    chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/${SCRIPT_NAME}.sh"
-    chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/install.sh"
 else
     echo "Updateing APTUpdate..."
 fi
@@ -32,6 +30,10 @@ cd "${INSTALL_DIR}/${SCRIPT_NAME}"
 git fetch --all
 git reset --hard origin/master
 git pull origin master
+
+## set dcript(s) to executable
+chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/${SCRIPT_NAME}.sh"
+chmod +x "${INSTALL_DIR}/${SCRIPT_NAME}/install.sh"
 
 ## symlink
 if [ ! -e "/usr/local/bin/${SCRIPT_NAME}" ]; then
