@@ -28,3 +28,5 @@ To update your system run the following command.
 ```
 sudo aptupdate
 ```
+
+APTUpdate has a self-updating mechanism that will fetch a new version when available. After a self-update is performed the above command will need to be executed again to perform a system update.
