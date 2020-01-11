@@ -31,8 +31,14 @@ if ! [ "$(id -u)" = 0 ]; then
     exit
 fi
 
+## generate configuration file
 if [ "$1" = "genconfig" ]; then
     printTitle "Generating /etc/aptupdate/aptupdate.conf"
+    if [ ! -d "/etc/${SCRIPT_NAME}" ]; then
+        mkdir -pv "/etc/${SCRIPT_NAME}"
+    fi
+    echo "${SCRIPT_PTH}"
+    cp -v "${SCRIPT_DIR}${CONFIGFILE}.conf" "${CONFIGFILE_ETC}"
     exit
 fi
 
