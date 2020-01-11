@@ -18,5 +18,5 @@ curl -s https://raw.githubusercontent.com/jasonjpeters/aptupdate/master/install.
 Configurations are sourced from ```aptupdate.conf``` located in ```/opt/aptupdate``` by default. These can be overriden by editing the file ```/etc/aptupdate/aptupdate.conf```. Generate this file with the command below.
 
 ```
-sudo aptupdate --genconfig
+sudo aptupdate genconfig
 ```
