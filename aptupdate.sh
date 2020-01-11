@@ -38,7 +38,7 @@ if [ "$1" = "genconfig" ]; then
         mkdir -pv "/etc/${SCRIPT_NAME}"
     fi
     echo "${SCRIPT_PTH}"
-    cp -v "${SCRIPT_DIR}${CONFIGFILE}.conf" "${CONFIGFILE_ETC}"
+    cp -v "${SCRIPT_DIR}${CONFIGFILE}" "${CONFIGFILE_ETC}"
     exit
 fi
 
