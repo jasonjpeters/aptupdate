@@ -20,3 +20,11 @@ Configurations are sourced from ```aptupdate.conf``` located in ```/opt/aptupdat
 ```
 sudo aptupdate genconfig
 ```
+
+## Usage
+
+To update your system run the following command.
+
+```
+sudo aptupdate
+```
