@@ -48,6 +48,8 @@ do
     if [ -f "$CONFIGFILE_PATH" ]; then
         source "$CONFIGFILE_PATH"
         echo "** Loaded ${CONFIGFILE_PATH}"
+    else 
+        echo "** NO CONFIGURATION LOADED"
     fi
 done
 
